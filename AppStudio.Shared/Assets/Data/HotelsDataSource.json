@@ -1,0 +1,46 @@
+{
+  "Items": [
+    {
+      "Title": "18 Don Gregorio Avenue San Sebastian Village, Tarlac ",
+      "Address": "ASIATEN HOTEL",
+      "ImageUrl": "/Assets/DataImages/as.jpg",
+      "Contact": "+63459823581",
+      "_id": "34cb780f-06f3-4934-bd70-7b023f303e48"
+    },
+    {
+      "Title": "Capas, Tarlac ",
+      "Address": "MR. BLUE HOTEL TARLAC",
+      "ImageUrl": "/Assets/DataImages/mrblue1.jpg",
+      "Contact": "+63456150820",
+      "_id": "a25e3864-bfb7-4bff-8d5b-61ebff5c457f"
+    },
+    {
+      "Title": "Luisita Business Park, Hacienda Luisita, San Miguel, Tarlac",
+      "Address": "CENTRAL PARK HOTEL TARLAC LUISITA",
+      "ImageUrl": "/Assets/DataImages/Central-Park-Hotel-Tarlac.jpg",
+      "Contact": "+63459851912",
+      "_id": "ed19f509-d25d-4de6-87f8-4f0c0be806d4"
+    },
+    {
+      "Title": "Milagrosa Street, Aquino Subdivision, Tarlac City, Tarlac",
+      "Address": "SUN GARDEN HOTEL TARLAC",
+      "ImageUrl": "/Assets/DataImages/sun-garden-hotel-pool.jpg",
+      "Contact": "+63459820688",
+      "_id": "14075c8e-4169-4278-9e3b-699394fd6eca"
+    },
+    {
+      "Title": "Hacienda Luisita, Tarlac City, Tarlac",
+      "Address": "MICROTEL INN TARLAC ",
+      "ImageUrl": "/Assets/DataImages/mi.jpg",
+      "Contact": "+63459851770",
+      "_id": "b066be40-66e0-40a7-ae71-c8edd212b8b4"
+    },
+    {
+      "Title": "MacArthur Highway, Tarlac City, Tarlac",
+      "Address": "HOTEL SOGO TARLAC",
+      "ImageUrl": "/Assets/DataImages/facade_with_name_tarlac.jpg",
+      "Contact": "+63456280445",
+      "_id": "b41f1d46-5858-43db-9522-248e03fd36df"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+<Page
+    x:Class="AppStudio.Views.InstagramDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppStudio.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:AppStudio.ViewModels"
+    mc:Ignorable="d">
+
+  <Grid Background="{StaticResource AppBackgroundColor}">
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+
+    <VisualStateManager.VisualStateGroups>
+      <VisualStateGroup x:Name="PageOrientationStates">
+        <VisualState x:Name="Landscape">
+          <Storyboard>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Flip" Storyboard.TargetProperty="ItemTemplate">
+              <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource LandscapeInstagram1DetailDetail}"/>
+            </ObjectAnimationUsingKeyFrames>
+          </Storyboard>
+        </VisualState>
+        <VisualState x:Name="Portrait" />
+      </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    
+    <FlipView x:Name="Flip" Grid.Row="1" AutomationProperties.AutomationId="ItemsFlipView" AutomationProperties.Name="Item Details" TabIndex="1"
+              DataContext="{Binding InstagramModel}"
+              d:DataContext="{d:DesignData Source=/Assets/Data/InstagramDataSource.json, Type=vm:InstagramViewModel, IsDesignTimeCreatable=true}"
+              ItemsSource="{Binding Items}"
+              ItemTemplate="{StaticResource Instagram1DetailDetail}"
+              SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+    </FlipView>
+
+  </Grid>
+
+  <Page.BottomAppBar>
+    <CommandBar ClosedDisplayMode="Minimal" Visibility="{Binding InstagramModel.AppBarVisibility}" Background="{StaticResource AppBarBackground}" Foreground="{StaticResource AppForegroundColor}">
+      <AppBarButton DataContext="{Binding InstagramModel}" x:Uid="TextToSpeechButton" Visibility="{Binding TextToSpeechVisibility}"
+                    Command="{Binding TextToSpeechCommand}">
+        <AppBarButton.Icon>
+          <BitmapIcon UriSource="ms-appx:///Assets/AppBar/TextToSpeech.png"/>
+        </AppBarButton.Icon>
+      </AppBarButton>
+      <AppBarButton DataContext="{Binding InstagramModel}" x:Uid="RefreshButton" Visibility="{Binding RefreshVisibility}"
+                    Command="{Binding RefreshCommand}">
+        <AppBarButton.Icon>
+          <BitmapIcon UriSource="ms-appx:///Assets/AppBar/Refresh.png"/>
+        </AppBarButton.Icon>
+      </AppBarButton>
+      <AppBarButton DataContext="{Binding InstagramModel}" x:Uid="GoToSourceButton" Visibility="{Binding GoToSourceVisibility}"
+                    Command="{Binding GoToSourceCommand}">
+        <AppBarButton.Icon>
+          <BitmapIcon UriSource="ms-appx:///Assets/AppBar/GoToSource.png"/>
+        </AppBarButton.Icon>
+      </AppBarButton>
+      <CommandBar.SecondaryCommands>
+        <AppBarButton x:Uid="ShareItemButton" Label="share item" DataContext="{Binding InstagramModel}" Visibility="{Binding ShareItemVisibility}" Command="{Binding ShareItemCommand}"/>
+      </CommandBar.SecondaryCommands>
+    </CommandBar>
+  </Page.BottomAppBar>
+</Page>

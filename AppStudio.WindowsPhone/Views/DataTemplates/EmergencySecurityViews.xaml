@@ -1,0 +1,46 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- ListNoPhoto -->
+    <DataTemplate x:Key="EmergencySecurityList">
+        <Grid>
+            <ListView ItemsSource="{Binding Items}"  SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True"  commands:ItemClickCommand.Command="{Binding ItemClickCommand}" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     ItemTemplate="{StaticResource EmergencySecurityItem}">
+            </ListView>
+            <ProgressBar Width="380" Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- ListNoPhoto Item -->
+    <DataTemplate x:Key="EmergencySecurityItem">
+        <Grid MinWidth="340" Height="120">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Margin="0, 16, 16, 0" Style="{StaticResource ItemHeaderText}"
+                        Text="{Binding Town, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+
+            <TextBlock Grid.Row="1" Margin="0, 0, 16, 16" Style="{StaticResource ItemSubheaderText}"
+                        Text="{Binding Name, Converter={StaticResource TextPlainConverter}, ConverterParameter=280}" />
+        </Grid>
+    </DataTemplate>
+
+
+    <!-- DetailMultiColumn -->
+    <DataTemplate x:Key="EmergencySecurity1DetailDetail">
+      <ScrollViewer>
+        <StackPanel>
+            <TextBlock Margin="0,16" Text="{Binding Town, Converter={StaticResource TextPlainConverter}, ConverterParameter = 140}" Style="{StaticResource SubHeaderText}" />
+            <TextBlock Style="{StaticResource ItemHeaderDetailWrapText}" Text="{Binding Name, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+            <Button Margin="0,5,5,10" VerticalAlignment="Top" Style="{StaticResource CallActionButton}"
+              Command="{Binding Source={StaticResource ActionCommands}, Path=CallToPhone}" CommandParameter="{Binding Contact}" Content="{Binding Contact, Converter={StaticResource TextPlainConverter}}"/>
+        </StackPanel>
+      </ScrollViewer>
+    </DataTemplate>
+</ResourceDictionary>

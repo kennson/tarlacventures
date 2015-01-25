@@ -1,0 +1,28 @@
+{
+  "Items": [
+    {
+      "Type": "Section",
+      "Title": "Facebook",
+      "Icon": "/Assets/DataImages/fb.png",
+      "Target": "FacebookPage"
+    },
+    {
+      "Type": "Section",
+      "Title": "Instagram",
+      "Icon": "/Assets/DataImages/Untitled.png",
+      "Target": "InstagramPage"
+    },
+    {
+      "Type": "Section",
+      "Title": "Twitter",
+      "Icon": "/Assets/DataImages/t.png",
+      "Target": "TwitterPage"
+    },
+    {
+      "Type": "Section",
+      "Title": "YouTube",
+      "Icon": "/Assets/DataImages/YouTube_icon_block.png",
+      "Target": "YouTubePage"
+    }
+  ]
+}

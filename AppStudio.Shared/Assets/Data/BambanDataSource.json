@@ -1,0 +1,14 @@
+{
+  "Items": [
+    {
+      "Destination": "Sikwako Falls",
+      "Location": "Bamban, Tarlac",
+      "Attraction": "/Assets/DataImages/sikwako1-1.jpg",
+      "Contact": "+639179933812",
+      "Person": "Contact : Cherilyn Pascua",
+      "Address": "Sta Rosa, Bamban, Tarlac",
+      "ImageUrl": "/Assets/DataImages/sikwako2.jpg",
+      "_id": "5a352813-bf38-4cc4-bb88-6837d522b62f"
+    }
+  ]
+}

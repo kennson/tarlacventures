@@ -1,0 +1,28 @@
+{
+  "Items": [
+    {
+      "Type": "Section",
+      "Title": "Bamban",
+      "Icon": "/Assets/DataImages/Bamban_Tarlac.png",
+      "Target": "BambanPage"
+    },
+    {
+      "Type": "Section",
+      "Title": "Capas",
+      "Icon": "/Assets/DataImages/Capas_Tarlac.png",
+      "Target": "CapasPage"
+    },
+    {
+      "Type": "Section",
+      "Title": "Mayantoc",
+      "Icon": "/Assets/DataImages/Mayantoc_Tarlac.png",
+      "Target": "MayantocPage"
+    },
+    {
+      "Type": "Section",
+      "Title": "San Jose",
+      "Icon": "/Assets/DataImages/San-Jose1-300x300.png",
+      "Target": "SanJosePage"
+    }
+  ]
+}

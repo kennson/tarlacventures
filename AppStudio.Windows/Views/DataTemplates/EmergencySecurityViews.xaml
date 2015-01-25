@@ -1,0 +1,90 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- ListNoPhoto -->
+    <DataTemplate x:Key="EmergencySecurityList">
+        <Grid MinWidth="480">
+            <GridView ItemsSource="{Binding PreviewItems}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True"  commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     ItemTemplate="{StaticResource EmergencySecurityItem}">
+            </GridView>
+            <ProgressBar Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EmergencySecurityListSnapped">
+        <Grid Width="230">
+            <GridView ItemsSource="{Binding PreviewItems}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ItemTemplate="{StaticResource EmergencySecurityItemSnapped}">
+            </GridView>
+            <ProgressBar Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- ListNoPhoto Item -->
+    <DataTemplate x:Key="EmergencySecurityItem">
+        <Grid Width="480" Height="120">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Margin="16, 16, 16, 0" Style="{StaticResource ItemHeaderText}" Text="{Binding Town, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+            <TextBlock Grid.Row="1" Margin="16, 0, 16, 16" Style="{StaticResource ItemSubheaderText}" Text="{Binding Name, Converter={StaticResource TextPlainConverter}, ConverterParameter=280}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EmergencySecurityItemSnapped">
+        <Grid Width="220" Height="100">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Margin="8, 8, 8, 0" Style="{StaticResource ItemHeaderTextSnapped}" Text="{Binding Town, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+            <TextBlock Grid.Row="1" Margin="8, 0, 8, 8" Style="{StaticResource ItemSubheaderTextSnapped}" Text="{Binding Name, Converter={StaticResource TextPlainConverter}, ConverterParameter=280}" />
+        </Grid>
+    </DataTemplate>
+
+
+    <!-- DetailMultiColumn -->
+    <DataTemplate x:Key="EmergencySecurity1DetailDetail">
+      <ScrollViewer VerticalScrollBarVisibility="Auto" ZoomMode="Disabled">
+        <Grid Margin="12,0">
+          <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+
+          <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+
+          <TextBlock Grid.ColumnSpan="2" Style="{StaticResource HeaderText}" Text="{Binding Town, Converter={StaticResource TextPlainConverter}, ConverterParameter = 140}" />
+          
+          <TextBlock Grid.Row="1" Margin="0,12,12,12" VerticalAlignment="Top" Style="{StaticResource ItemHeaderText}" Text="{Binding Name, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+          <Button Grid.Row="1" Grid.Column="1" Margin="0,12" VerticalAlignment="Top" Style="{StaticResource CallActionButton}"
+                  Command="{Binding Source={StaticResource ActionCommands}, Path=CallToPhone}" CommandParameter="{Binding Contact}"
+                  Content="{Binding Contact, Converter={StaticResource TextPlainConverter}}"/>
+        </Grid>
+      </ScrollViewer>
+    </DataTemplate>
+    <DataTemplate x:Key="EmergencySecurity1DetailDetailSnapped">
+        <Grid Width="230">
+            <StackPanel>
+                <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderText}" Text="{Binding Town, Converter={StaticResource TextPlainConverter}, ConverterParameter = 140}" />
+                <TextBlock Margin="0, 0, 16, 16" Style="{StaticResource ItemHeaderText}" Text="{Binding Name, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+                <Button Margin="0,12" VerticalAlignment="Top" Style="{StaticResource CallActionButton}"
+                        Command="{Binding Source={StaticResource ActionCommands}, Path=CallToPhone}" CommandParameter="{Binding Contact}"
+                        Content="{Binding Contact, Converter={StaticResource TextPlainConverter}}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

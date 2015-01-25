@@ -1,0 +1,50 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- MenuListPhotoLeft -->
+    <DataTemplate x:Key="SocialNetworkList">
+      <Grid>
+        <ListView Width="600" ItemsSource="{Binding Items}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemTemplate="{StaticResource SocialNetworkItem}">
+        </ListView>
+      </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SocialNetworkListSnapped">
+      <Grid>
+        <ListView Width="230" ItemsSource="{Binding Items}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ItemTemplate="{StaticResource SocialNetworkItemSnapped}">
+        </ListView>
+      </Grid>
+    </DataTemplate>
+
+    <!-- MenuListPhotoLeft Item -->
+    <DataTemplate x:Key="SocialNetworkItem">
+        <Grid Width="600" Height="80">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="530" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Margin="0, 5" Source="{Binding Icon}" Width="70" Height="70" Stretch="UniformToFill"/>
+            <TextBlock Grid.Column="1" Margin="10" Height="20" Text="{Binding Title}" Style="{StaticResource MenuItemText}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SocialNetworkItemSnapped">
+        <Grid Width="600" Height="80">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="530" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Margin="0, 5" Source="{Binding Icon}" Width="70" Height="70" Stretch="UniformToFill"/>
+            <TextBlock Grid.Column="1" Margin="10" Height="20" Text="{Binding Title}" Style="{StaticResource MenuItemTextSnapped}" />
+        </Grid>
+    </DataTemplate>
+
+
+</ResourceDictionary>

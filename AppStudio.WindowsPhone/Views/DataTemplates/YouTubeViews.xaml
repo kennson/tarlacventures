@@ -1,0 +1,41 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- ListMetro -->
+    <DataTemplate x:Key="YouTubeList">
+        <Grid>
+            <ListView ItemsSource="{Binding Items}"  SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True"  commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     ItemTemplate="{StaticResource YouTubeItem}">
+            </ListView>
+            <ProgressBar Width="400" Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- ListMetro Item -->
+    <DataTemplate x:Key="YouTubeItem">
+        <Grid Margin="0, 10" MinWidth="320" Height="220">
+            <Grid.Background>
+                <ImageBrush ImageSource="{Binding ImageUrl, Converter={StaticResource ThumbnailConverter}, ConverterParameter=220}" Stretch="UniformToFill" />
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.1*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" VerticalAlignment="Stretch" Background="Black" Opacity="0.7" />
+            <StackPanel Grid.Row="1" Margin="8">
+                <TextBlock Style="{StaticResource ItemHeaderText}"
+                            Text="{Binding Title, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" MaxLines="1"/>
+                <TextBlock Style="{StaticResource ItemSubheaderText}"
+                            Text="{Binding Summary, Converter={StaticResource TextPlainConverter}, ConverterParameter=280}" MaxLines="2"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+        
+
+    <!-- DetailVideo -->
+</ResourceDictionary>

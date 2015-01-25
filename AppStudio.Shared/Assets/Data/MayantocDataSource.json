@@ -1,0 +1,28 @@
+{
+  "Items": [
+    {
+      "Destination": "Calao Falls",
+      "Locatioon": "Sitio Calao, San Jose, Mayantoc",
+      "Attraction": "/Assets/DataImages/calao_falls.jpg",
+      "Contact": "+63454915003",
+      "Person": "Contact : Engr Bonifacio Arenzana",
+      "_id": "1a272635-8aa5-4d44-b05e-1595b266a53b"
+    },
+    {
+      "Destination": "Tinaboy Water Camp",
+      "Locatioon": "Labney, Mayantoc, Tarlac",
+      "Attraction": "/Assets/DataImages/Tinaboy_Water_Camp_2.jpg",
+      "Contact": "+63454915003",
+      "Person": "Contact : Engr Bonifacio Arenzana",
+      "_id": "b867c047-c9bc-4f1c-818f-0d10bccb7ca5"
+    },
+    {
+      "Destination": "ANZAP Twin Falls",
+      "Locatioon": "Nambalan, Mayantoc, Tarlac",
+      "Attraction": "/Assets/DataImages/anzap2.jpg",
+      "Contact": "+63454915003",
+      "Person": "Contact : Engr Bonifacio Arenzana",
+      "_id": "9974e1fe-6536-49f4-9048-36cfafbc0196"
+    }
+  ]
+}

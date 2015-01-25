@@ -1,0 +1,52 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- ListVerticalCards -->
+    <DataTemplate x:Key="MayantocList">
+        <Grid>
+            <ListView ItemsSource="{Binding Items}"  SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True"  commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     ItemTemplate="{StaticResource MayantocItem}">
+            </ListView>
+            <ProgressBar Width="340" Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- ListVerticalCards Item -->
+    <DataTemplate x:Key="MayantocItem">
+
+        <Grid Margin="0, 10" MinWidth="340" Background="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Margin="10, 10, 10, 0" Source="{Binding Attraction, Converter={StaticResource ThumbnailConverter}, ConverterParameter=300}" MaxHeight="240"
+                    Stretch="UniformToFill" VerticalAlignment="Top" />
+
+            <TextBlock Grid.Row="1" Margin="10, 10, 10, 4" Style="{StaticResource ItemHeaderText}"
+                        Text="{Binding Destination, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+
+            <TextBlock Grid.Row="2" Margin="10, 4" Style="{StaticResource ItemSubheaderText}" VerticalAlignment="Top"
+                        Text="{Binding Locatioon, Converter={StaticResource TextPlainConverter}, ConverterParameter=280}" />
+        </Grid>
+    </DataTemplate>
+
+
+    <!-- DetailMultiColumn -->
+    <DataTemplate x:Key="Mayantoc1DetailDetail">
+      <ScrollViewer>
+        <StackPanel>
+            <TextBlock Margin="0,16" Text="Mayantoc Tourism Office" Style="{StaticResource SubHeaderText}" />
+            <TextBlock Style="{StaticResource ItemHeaderDetailWrapText}" Text="{Binding Person, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+            <Button Margin="0,5,5,10" VerticalAlignment="Top" Style="{StaticResource CallActionButton}"
+              Command="{Binding Source={StaticResource ActionCommands}, Path=CallToPhone}" CommandParameter="{Binding Contact}" Content="{Binding Contact, Converter={StaticResource TextPlainConverter}}"/>
+        </StackPanel>
+      </ScrollViewer>
+    </DataTemplate>
+</ResourceDictionary>

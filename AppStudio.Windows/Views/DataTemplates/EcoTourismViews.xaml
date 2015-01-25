@@ -1,0 +1,66 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- MenuGridPhoto -->
+    <DataTemplate x:Key="EcoTourismList">
+      <Grid>
+        <ListView Width="600" ItemsSource="{Binding Items}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemTemplate="{StaticResource EcoTourismItem}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapGrid Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+      </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EcoTourismListSnapped">
+      <Grid>
+        <ListView Width="230" ItemsSource="{Binding Items}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ItemTemplate="{StaticResource EcoTourismItemSnapped}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapGrid Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+      </Grid>
+    </DataTemplate>
+
+    <!-- MenuGridPhoto Item -->
+    <DataTemplate x:Key="EcoTourismItem">
+        <Grid Width="170" Height="170">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.6"></SolidColorBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Image Margin="5" Source="{Binding Icon}" Width="100" Height="100" Stretch="UniformToFill"/>
+            <TextBlock Grid.Row="1" Margin="10, 5" Text="{Binding Title}" Style="{StaticResource MenuItemSmallText}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EcoTourismItemSnapped">
+        <Grid Width="170" Height="170">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.6"></SolidColorBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Image Margin="5" Source="{Binding Icon}" Width="100" Height="100" Stretch="UniformToFill"/>
+            <TextBlock Grid.Row="1" Margin="10, 5" Text="{Binding Title}" Style="{StaticResource MenuItemSmallText}" />
+        </Grid>
+    </DataTemplate>
+
+
+</ResourceDictionary>

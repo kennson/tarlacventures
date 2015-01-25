@@ -1,0 +1,36 @@
+{
+  "Items": [
+    {
+      "Town": "Bamban",
+      "Name": "PNP: PCINSP Elino Mangrobang",
+      "Contact": "",
+      "AFP": "AFP: Maj. Romero Gabor",
+      "CPAFP": "+639175148959",
+      "_id": "e4c906d0-2204-4460-bcd8-c87b51a849fd"
+    },
+    {
+      "Town": "Capas",
+      "Name": "PNP: PSUPT Jesus Atchico Rebua",
+      "Contact": "+639176224401",
+      "AFP": "AFP: Maj. Romero Gabor",
+      "CPAFP": "+639175148959",
+      "_id": "c6dcc073-7092-4009-8c29-21e2da0ae13d"
+    },
+    {
+      "Town": "San Jose",
+      "Name": "PNP: PINSP Ronnie Astrero",
+      "Contact": "+639179567186",
+      "AFP": "AFP: Maj. Romero Gabor",
+      "CPAFP": "+639175148959",
+      "_id": "f3410ea9-3891-4448-8df5-1ce5e1b275d6"
+    },
+    {
+      "Town": "Mayantoc",
+      "Name": "PNP: PSIP Jim Tayag",
+      "Contact": "+639175148959",
+      "AFP": "AFP: Maj. Romero Gabor",
+      "CPAFP": "+639175148959",
+      "_id": "43652468-a845-4e16-a70a-823dfcac385a"
+    }
+  ]
+}

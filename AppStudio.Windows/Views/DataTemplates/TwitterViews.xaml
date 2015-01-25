@@ -1,0 +1,55 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AppStudio.Controls"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:commands="using:AppStudio.Commands">
+
+    <!-- ListNoPhoto -->
+    <DataTemplate x:Key="TwitterList">
+        <Grid MinWidth="480">
+            <GridView ItemsSource="{Binding PreviewItems}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True"  commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                     ItemTemplate="{StaticResource TwitterItem}">
+            </GridView>
+            <ProgressBar Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TwitterListSnapped">
+        <Grid Width="230">
+            <GridView ItemsSource="{Binding PreviewItems}" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True" commands:ItemClickCommand.Command="{Binding ItemClickCommand}"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      ItemTemplate="{StaticResource TwitterItemSnapped}">
+            </GridView>
+            <ProgressBar Height="40" Foreground="White" VerticalAlignment="Top" IsIndeterminate="True" Visibility="{Binding ProgressBarVisibility}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- ListNoPhoto Item -->
+    <DataTemplate x:Key="TwitterItem">
+        <Grid Width="480" Height="120">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Margin="16, 16, 16, 0" Style="{StaticResource ItemHeaderText}" Text="{Binding UserName, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+            <TextBlock Grid.Row="1" Margin="16, 0, 16, 16" Style="{StaticResource ItemSubheaderText}" Text="{Binding Text, Converter={StaticResource TextPlainConverter}, ConverterParameter=280}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TwitterItemSnapped">
+        <Grid Width="220" Height="100">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Margin="8, 8, 8, 0" Style="{StaticResource ItemHeaderTextSnapped}" Text="{Binding UserName, Converter={StaticResource TextPlainConverter}, ConverterParameter=140}" />
+            <TextBlock Grid.Row="1" Margin="8, 0, 8, 8" Style="{StaticResource ItemSubheaderTextSnapped}" Text="{Binding Text, Converter={StaticResource TextPlainConverter}, ConverterParameter=280}" />
+        </Grid>
+    </DataTemplate>
+
+
+</ResourceDictionary>

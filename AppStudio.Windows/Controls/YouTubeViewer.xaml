@@ -1,0 +1,132 @@
+<UserControl
+    x:Class="AppStudio.Controls.YouTubeViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppStudio.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800"
+    d:DesignWidth="1024"
+    xmlns:html2xaml="using:AppStudio.Controls.Html2Xaml"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    x:Name="LayoutRoot">
+
+  <Grid Background="{StaticResource AppBackground}">
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+    <i:Interaction.Behaviors>
+      <core:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=FullScreenToggleButton}" ComparisonCondition="Equal" Value="True">
+        <core:GoToStateAction StateName="Fullscreen" />
+      </core:DataTriggerBehavior>
+      <core:DataTriggerBehavior Binding="{Binding IsChecked, ElementName=FullScreenToggleButton}" ComparisonCondition="Equal" Value="False">
+        <core:GoToStateAction StateName="Normal" />
+      </core:DataTriggerBehavior>
+    </i:Interaction.Behaviors>
+
+    <VisualStateManager.VisualStateGroups>
+      <VisualStateGroup x:Name="OrientationGroup">
+        <VisualState x:Name="SnappedView">
+          <Storyboard>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LeftMargin" Storyboard.TargetProperty="(Grid.Width)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightMargin" Storyboard.TargetProperty="(Grid.Width)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+          </Storyboard>
+        </VisualState>
+        <VisualState x:Name="PortraitView">
+          <Storyboard>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LeftMargin" Storyboard.TargetProperty="(Grid.Width)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightMargin" Storyboard.TargetProperty="(Grid.Width)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+          </Storyboard>
+        </VisualState>
+        <VisualState x:Name="FullscreenView"/>
+      </VisualStateGroup>
+      <VisualStateGroup x:Name="FullscreenControl">
+        <VisualState x:Name="Normal"/>
+        <VisualState x:Name="Fullscreen">
+          <Storyboard>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LeftMargin" Storyboard.TargetProperty="(Grid.Width)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightMargin" Storyboard.TargetProperty="(Grid.Width)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Title" Storyboard.TargetProperty="(Grid.Height)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TopMargin" Storyboard.TargetProperty="(Grid.Height)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BottomMargin" Storyboard.TargetProperty="(Grid.Height)">
+              <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                <DiscreteObjectKeyFrame.Value>0</DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+          </Storyboard>
+        </VisualState>
+      </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition x:Name="TopMargin" Height="140"/>
+        <RowDefinition x:Name="Title" Height="Auto"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition x:Name="BottomMargin" Height=".35*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition x:Name="LeftMargin" Width=".12*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition x:Name="RightMargin" Width=".12*"/>
+      </Grid.ColumnDefinitions>
+
+      <TextBlock Grid.Row="1" Grid.Column="1" Margin="15" Style="{StaticResource HeaderText}" Text="{Binding TitleText, ElementName=LayoutRoot}" />
+
+      <WebView x:Name="WebView" Grid.Row="2" Grid.Column="1" Source="{Binding EmbedUrl, ElementName=LayoutRoot}"
+               Visibility="{Binding Path=NetworkAvailable, ElementName=LayoutRoot, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+      <TextBlock Grid.Row="2" Grid.Column="1" x:Uid="NoConnectionAvailable" Style="{StaticResource HeaderText}" VerticalAlignment="Center" Text="No connection available."
+               Visibility="{Binding Path=NetworkAvailable, ElementName=LayoutRoot, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=true}"/>
+
+      <ScrollViewer Grid.Row="3" Grid.Column="1" Margin="15,15,15,25" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
+                    ZoomMode="Disabled">
+        <RichTextBlock html2xaml:Properties.Html="{Binding SummaryText, ElementName=LayoutRoot}" Style="{StaticResource Html2XamlStyle}" html2xaml:Properties.ContainsCrlf="True" />
+      </ScrollViewer>
+    </Grid>
+
+    <!-- Back button and page title -->
+    <Border x:Name="HeaderHost" Padding="40,60,40,0" Height="140" VerticalAlignment="Top"
+      Visibility="{Binding IsChecked, ElementName=FullScreenToggleButton, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=true}">
+      <ContentPresenter ContentTemplate="{StaticResource PageHeader}" Content="{Binding NavigationHelper, ElementName=LayoutRoot}" />
+    </Border>
+
+    <AppBarToggleButton x:Name="FullScreenToggleButton" Icon="FullScreen" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource InfoAppBarToggleButtonStyle}"/>
+  </Grid>
+</UserControl>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{dfa1d025-a337-4730-8c00-c5be63736ca8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppStudio.Data</RootNamespace>
+    <AssemblyName>AppStudio.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
+    <TargetPlatform Include="Windows, Version=8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AppStorage\AppCache.cs" />
+    <Compile Include="AppStorage\AppLogs.cs" />
+    <Compile Include="AppStorage\UserStorage.cs" />
+    <Compile Include="Common\RssHelper.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Common\ISyncItem.cs" />
+    <Compile Include="Common\ObservableCollectionExtensions.cs" />
+    <Compile Include="Common\XElementExtensions.cs" />
+    <Compile Include="DataProviders\RssReaders\AtomReader.cs" />
+    <Compile Include="DataProviders\RssReaders\BaseRssReader.cs" />
+    <Compile Include="DataProviders\RssReaders\RssReader.cs" />
+    <Compile Include="DataProviders\RssDataProvider.cs" />
+    <Compile Include="DataProviders\YouTubeDataProvider.cs" />
+    <Compile Include="DataProviders\FacebookDataProvider.cs" />
+    <Compile Include="DataProviders\StaticDataProvider.cs" />
+    <Compile Include="DataProviders\Twitter\TwitterProvider.cs" />
+    <Compile Include="DataProviders\Twitter\TwitterSearchResult.cs" />
+    <Compile Include="DataProviders\Twitter\TwitterTimeLineItem.cs" />
+    <Compile Include="DataProviders\Twitter\TwitterUser.cs" />
+    <Compile Include="DataProviders\Twitter\OAuthEncoder.cs" />
+    <Compile Include="DataProviders\Twitter\OAuthParameter.cs" />
+    <Compile Include="DataProviders\Twitter\OAuthRequest.cs" />
+    <Compile Include="DataProviders\Twitter\OAuthRequestBuilder.cs" />
+    <Compile Include="DataProviders\Twitter\OAuthUriExtensions.cs" />
+    <Compile Include="DataProviders\Instagram\InstagramDataProvider.cs" />
+    <Compile Include="DataProviders\Instagram\InstagramResponse.cs" />
+    <Compile Include="DataSources\DataSourceContent.cs" />
+    <Compile Include="DataSources\DataSourceBase.cs" />
+    <Compile Include="DataSources\EcoTourismDataSource.cs" />
+    <Compile Include="DataSources\BambanDataSource.cs" />
+    <Compile Include="DataSources\CapasDataSource.cs" />
+    <Compile Include="DataSources\MayantocDataSource.cs" />
+    <Compile Include="DataSources\SanJoseDataSource.cs" />
+    <Compile Include="DataSources\HotelsDataSource.cs" />
+    <Compile Include="DataSources\SocialNetworkDataSource.cs" />
+    <Compile Include="DataSources\FacebookDataSource.cs" />
+    <Compile Include="DataSources\InstagramDataSource.cs" />
+    <Compile Include="DataSources\TwitterDataSource.cs" />
+    <Compile Include="DataSources\YouTubeDataSource.cs" />
+    <Compile Include="DataSources\EmergencySecurityDataSource.cs" />
+    <Compile Include="OAuth\OAuthTokens.cs" />
+    <Compile Include="Tiles\TileServices.cs" />
+    <Compile Include="DataSchemas\RssSchema.cs" />
+    <Compile Include="DataSchemas\MenuSchema.cs" />
+    <Compile Include="DataSchemas\BambanSchema.cs" />
+    <Compile Include="DataSchemas\CapasSchema.cs" />
+    <Compile Include="DataSchemas\MayantocSchema.cs" />
+    <Compile Include="DataSchemas\SanJoseSchema.cs" />
+    <Compile Include="DataSchemas\HotelsSchema.cs" />
+    <Compile Include="DataSchemas\FacebookSchema.cs" />
+    <Compile Include="DataSchemas\InstagramSchema.cs" />
+    <Compile Include="DataSchemas\TwitterSchema.cs" />
+    <Compile Include="DataSchemas\YouTubeSchema.cs" />
+    <Compile Include="DataSchemas\EmergencySecuritySchema.cs" />
+    <Compile Include="OAuth\OAuthTokensRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+</ItemGroup>
+
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AppStudio.Common">
+      <HintPath>..\Lib\AppStudio.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage">
+      <HintPath>..\packages\PCLStorage.1.0.0\lib\portable-win8+wpa81\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions">
+      <HintPath>..\packages\PCLStorage.1.0.0\lib\portable-win8+wpa81\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
